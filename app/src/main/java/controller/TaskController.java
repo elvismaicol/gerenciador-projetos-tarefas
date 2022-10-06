@@ -57,16 +57,6 @@ public class TaskController {
     public void update(Task task) {
 
         String sql = "UPDATE tasks SET idProject = ?, name = ?, description = ?, notes = ?, deadline = ?, completed = ?, createdAt = ?, updatedAt = ? WHERE id = ?";
-//                "UPDATE tasks SET "
-//                + "idProject = ?, "
-//                + "name = ?, "
-//                + "description = ?, "
-//                + "completed = ?, "
-//                + "notes = ?, "
-//                + "deadline = ?, "
-//                + "createdAt = ?, "
-//                + "updateAt = ? "
-//                + "WHERE id = ?";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -79,15 +69,15 @@ public class TaskController {
             statement = (PreparedStatement) connection.prepareStatement(sql);
             
             //Setando os valores do statement
-            statement.setInt(1, task.getIdProject());
-            statement.setString(2, task.getName());
-            statement.setString(3, task.getDescription());
-            statement.setString(4, task.getNotes());
-            statement.setDate(5, new java.sql.Date(task.getDeadline().getTime()));
+            statement.setInt    (1, task.getIdProject());
+            statement.setString (2, task.getName());
+            statement.setString (3, task.getDescription());
+            statement.setString (4, task.getNotes());
+            statement.setDate   (5, new java.sql.Date(task.getDeadline().getTime()));
             statement.setBoolean(6, task.getIsCompleted());
-            statement.setDate(7, new Date(task.getCreatedAt().getTime()));
-            statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
-            statement.setInt(9, task.getId());
+            statement.setDate   (7, new Date(task.getCreatedAt().getTime()));
+            statement.setDate   (8, new Date(task.getUpdatedAt().getTime()));
+            statement.setInt    (9, task.getId());
             
             //Executando a query
             statement.execute();
@@ -125,7 +115,7 @@ public class TaskController {
 
     public List<Task> getAll(int idProject) {
 
-        String sql = "SELECT * FROM tasks WHERE id = ?";
+        String sql = "SELECT * FROM tasks WHERE idProject = ?";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -152,6 +142,7 @@ public class TaskController {
                 Task task = new Task();
                 task.setId(resultSet.getInt("id"));
                 task.setIdProject(resultSet.getInt("idProject"));
+                task.setName(resultSet.getString("name"));
                 task.setDescription(resultSet.getString("description"));
                 task.setNotes(resultSet.getString("notes"));
                 task.setDeadline(resultSet.getDate("deadline"));

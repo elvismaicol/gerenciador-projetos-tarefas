@@ -22,7 +22,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-//    ProjectController projectController = new ProjectController();
+    ProjectController projectController = new ProjectController();
 //    
 //    Project project = new Project();
 //    project.setName("Projeto teste");
@@ -37,14 +37,14 @@ public class Main {
 //    project.setDescription("description do projeto auterado");    
 //    projectController.update(project);
 //    
-//    List<Project> projects = projectController.getAll();
-//    System.out.println("Total de Projetos: " + projects.size());
+    List<Project> projects = projectController.getAll();
+    System.out.println("Total de Projetos: " + projects.size());
     
 //    projectController.removeById(1);
       
     TaskController  taskController = new TaskController();
     
-    Task task = new Task();
+    //Task task = new Task();
     
 //    task.setIdProject(10);
 //    task.setName("Projeto 3 task");
@@ -53,11 +53,11 @@ public class Main {
 //    task.setIsCompleted(false);
 //    task.setDeadline(new Date());
 //    
-    taskController.save(task);
+    //taskController.save(task);
 //        
-//    task.setName("Alterar telas da aplicação");
-//    taskController.update(task);
-//    List<Task> tasks = taskController.getAll(2);
-//    System.out.println("Total de tarefas = " + tasks.size());     
+    //task.setName("Alterar telas da aplicação");
+    //taskController.update(task);
+    List<Task> tasks = taskController.getAll(8);
+    System.out.println("Total de tarefas = " + tasks.size());     
     }
 }

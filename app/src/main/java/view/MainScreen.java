@@ -474,8 +474,8 @@ public class MainScreen extends javax.swing.JFrame {
         projectsModel.clear();
 
         for (int i = 0; i < projects.size(); i++) {
-            Project project = projects.get(i);
-            projectsModel.addElement(project);
+            //Project project = projects.get(i);
+            projectsModel.addElement(projects.get(i));
         }
         jListProjects.setModel(projectsModel);
     }

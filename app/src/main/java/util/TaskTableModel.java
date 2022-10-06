@@ -17,7 +17,7 @@ import model.Task;
 public class TaskTableModel extends AbstractTableModel {
 
     String[] columns = {"Nome", "Descrição", "Prazo", "Tarefa Concluída", "Editar", "Excluir"};
-    List<Task> tasks = new ArrayList();
+    List<Task> tasks = new ArrayList<>();
 
     @Override
     public int getRowCount() {
@@ -28,19 +28,19 @@ public class TaskTableModel extends AbstractTableModel {
     public int getColumnCount() {
         return columns.length;
     }
-    
+
     @Override
-    public String getColumnName(int columnIndex){
+    public String getColumnName(int columnIndex) {
         return columns[columnIndex];
     }
-    
-    public boolean isCellEditable(int rowIndex, int columnIndex){
+
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 3;
     }
-    
+
     @Override
-    public Class<?> getColumnClass(int columnIndex){
-        if(tasks.isEmpty()){
+    public Class<?> getColumnClass(int columnIndex) {
+        if (tasks.isEmpty()) {
             return Object.class;
         }
         return this.getValueAt(0, columnIndex).getClass();
@@ -59,7 +59,7 @@ public class TaskTableModel extends AbstractTableModel {
                 return dateFormat.format(tasks.get(rowIndex).getDeadline());
             case 3:
                 return tasks.get(rowIndex).getIsCompleted();
-                //return tasks.get(rowIndex).getDeadline();
+            //return tasks.get(rowIndex).getDeadline();
             case 4:
                 return "";
             case 5:
@@ -69,8 +69,13 @@ public class TaskTableModel extends AbstractTableModel {
         }
     }
     
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex){
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         tasks.get(rowIndex).setIsCompleted((boolean) aValue);
+    }
+
+    public void addRow(Task task) {
+        this.tasks.add(task);
     }
 
     public String[] getColumns() {

@@ -80,6 +80,14 @@ public class Task {
         this.notes = notes;
     }
 
+//    public boolean isCompleted() {
+//        return completed;
+//    }
+//
+//    public void setCompleted(boolean completed) {
+//        this.completed = completed;
+//    }
+    
     public boolean getIsCompleted() {
         return completed;
     }
