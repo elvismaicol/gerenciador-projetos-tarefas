@@ -19,7 +19,8 @@ import model.Task;
  */
 public class DeadlineColumnCellRederer extends DefaultTableCellRenderer {   
     
-    public Component getTableCellRedererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
         
         JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
         label.setHorizontalAlignment(JLabel.CENTER);
