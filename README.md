@@ -1,4 +1,4 @@
-## Aplicação desenvolvida para gerenciamento projetos
+## Aplicação desenvolvida para gerenciar projetos
 </br>
 
 ### Olá!!! 👋
@@ -74,6 +74,8 @@ Tag
 
 ## 📌 Visualização
 </br>
+
+<img src="img/managerapp.gif" width="600">
 
 ### Tela principal
 
